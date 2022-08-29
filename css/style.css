@@ -1,0 +1,88 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: black;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+/* glob */
+
+.flex {
+    display: flex;
+}
+
+
+/* glob */
+
+.board {
+    position: relative;
+    width: 1024px;
+    height: 863px;
+    margin: 0 auto;
+    background-image: url(../img/board.jpg);
+    background-repeat: no-repeat;
+}
+
+#messageArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: rgba(83, 175, 19, 1);
+}
+
+.hit {
+    background: url("../img/ship.png") no-repeat center center;
+}
+
+.miss {
+    background: url("../img/miss.png") no-repeat center center;
+}
+
+.table {
+    position: absolute;
+    top: 99.5px;
+    left: 173.4px;
+    border-spacing: 0px;
+}
+
+.table__item {
+    width: 96px;
+    height: 96px;
+}
+
+.form {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 10px;
+    background-color: rgba(83, 175, 19, 1);
+}
+
+.form input {
+    background-color: rgba(152, 207, 113, 1);
+    border-color: rgba(83, 175, 19, 1);
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.guessInput-js {
+    outline: none;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Морской бой</title>
+
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="board">
+        <table class="table">
+            <div id="messageArea"></div>
+            <tr class="table__line">
+                <td class="table__item" id="00"></td>
+                <td class="table__item" id="01"></td>
+                <td class="table__item" id="02"></td>
+                <td class="table__item" id="03"></td>
+                <td class="table__item" id="04"></td>
+                <td class="table__item" id="05"></td>
+                <td class="table__item" id="06"></td>
+            </tr>
+            <tr class="table__line">
+                <td class="table__item" id="10"></td>
+                <td class="table__item" id="11"></td>
+                <td class="table__item" id="12"></td>
+                <td class="table__item" id="13"></td>
+                <td class="table__item" id="14"></td>
+                <td class="table__item" id="15"></td>
+                <td class="table__item" id="16"></td>
+            </tr>
+            <tr class="table__line">
+                <td class="table__item" id="20"></td>
+                <td class="table__item" id="21"></td>
+                <td class="table__item" id="22"></td>
+                <td class="table__item" id="23"></td>
+                <td class="table__item" id="24"></td>
+                <td class="table__item" id="25"></td>
+                <td class="table__item" id="26"></td>
+            </tr>
+            <tr class="table__line">
+                <td class="table__item" id="30"></td>
+                <td class="table__item" id="31"></td>
+                <td class="table__item" id="32"></td>
+                <td class="table__item" id="33"></td>
+                <td class="table__item" id="34"></td>
+                <td class="table__item" id="35"></td>
+                <td class="table__item" id="36"></td>
+            </tr>
+            <tr class="table__line">
+                <td class="table__item" id="40"></td>
+                <td class="table__item" id="41"></td>
+                <td class="table__item" id="42"></td>
+                <td class="table__item" id="43"></td>
+                <td class="table__item" id="44"></td>
+                <td class="table__item" id="45"></td>
+                <td class="table__item" id="46"></td>
+            </tr>
+            <tr class="table__line">
+                <td class="table__item" id="50"></td>
+                <td class="table__item" id="51"></td>
+                <td class="table__item" id="52"></td>
+                <td class="table__item" id="53"></td>
+                <td class="table__item" id="54"></td>
+                <td class="table__item" id="55"></td>
+                <td class="table__item" id="56"></td>
+            </tr>
+            <tr class="table__line">
+                <td class="table__item" id="60"></td>
+                <td class="table__item" id="61"></td>
+                <td class="table__item" id="62"></td>
+                <td class="table__item" id="63"></td>
+                <td class="table__item" id="64"></td>
+                <td class="table__item" id="65"></td>
+                <td class="table__item" id="66"></td>
+            </tr>
+        </table>
+        <form class="form">
+            <input type="text" id="guessInput" class="guessInput-js" placeholder="A0">
+            <input type="button" id="fireButton" class="fireButton-js" value="Огонь!">
+        </form>
+    </div>
+    <script src="battleship.js"></script>
+</body>
+
+</html>
