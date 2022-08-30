@@ -1,0 +1,33 @@
+@media (max-width: 1440px) {
+    body {
+        max-width: 1024px;
+    }
+    #messageArea {
+        font-size: 1.5em;
+    }
+    .board {
+        width: 924px;
+        height: 663px;
+        background-size: contain;
+        background-position: center;
+    }
+    .table {
+        top: 75px;
+        left: 200px;
+    }
+    .table__item {
+        width: 74px;
+        height: 74px;
+    }
+    .hit,
+    .miss {
+        background-size: contain;
+    }
+    .form {
+        right: 70px;
+        padding: 7px;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 768px) {}
