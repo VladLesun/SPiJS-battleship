@@ -34,9 +34,9 @@ let model = {
     shipsSunk: 0, // количество потопленных кораблей
 
     ships: [ // позиции кораблей и координаты попаданий
-        { locations: ['06', '16', '26'], hits: ['', '', ''] },
-        { locations: ['24', '34', '44'], hits: ['', '', ''] },
-        { locations: ['10', '11', '12'], hits: ['', '', ''] }
+        { locations: ['0', '0', '0'], hits: ['', '', ''] },
+        { locations: ['0', '0', '0'], hits: ['', '', ''] },
+        { locations: ['0', '0', '0'], hits: ['', '', ''] }
     ],
 
     fire: function(guess) {
@@ -67,6 +67,54 @@ let model = {
             }
         }
         return true;
+    },
+
+    generateShipLocations: function() {
+        let locations;
+        for (let i = 0; i < this.numShips; i++) {
+            do {
+                locations = this.generateShip();
+            } while (this.collision(locations));
+            this.ships[i].locations = locations;
+        }
+        console.log("Ships array: ");
+        console.log(this.ships);
+    },
+
+    generateShip: function() {
+        let direction = Math.floor(Math.random() * 2);
+        let col, row;
+
+        if (direction === 1) { // Горизонтально
+            row = Math.floor(Math.random() * this.boardSize);
+            col = Math.floor(Math.random() * (this.boardSize - this.shipLength));
+        } else { // Вертикально
+            row = Math.floor(Math.random() * (this.boardSize - this.shipLength));
+            col = Math.floor(Math.random() * this.boardSize);
+        }
+
+        let newShipLocations = [];
+        for (let i = 0; i < this.shipLength; i++) {
+            if (direction === 1) {
+                newShipLocations.push(row + '' + (col + i));
+            } else {
+                newShipLocations.push((row + i) + '' + col);
+            }
+        }
+        return newShipLocations;
+    },
+
+    collision: function(locations) {
+        for (let i = 0; i < this.numShips; i++) {
+            let ship = model.ships[i];
+
+            for (let j = 0; j < locations.length; j++) {
+                if (ship.locations.indexOf(locations[j]) >= 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 };
 
@@ -123,7 +171,7 @@ let controller = {
             this.guesses++;
             let hit = model.fire(location);
             if (hit && model.shipsSunk === model.numShips) {
-                view.displayMessage('Вы потопили все мои корабли, в ' + this.guesses + ' попыток');
+                view.displayMessage('Вы потопили все мои корабли, в ' + this.guesses + ' попыток, игра окончена!!!');
             }
         }
     }
@@ -146,6 +194,10 @@ function handleFireButton() {
     let guessInput = document.getElementById('guessInput');
     let guess = guessInput.value.toUpperCase();
     controller.processGuess(guess);
+    if (model.shipsSunk === model.numShips) {
+        document.getElementById('guessInput').readOnly = true;
+        document.getElementById('fireButton').disabled = true;
+    }
 
     guessInput.value = '';
 };
@@ -166,4 +218,6 @@ function init() {
 
     let guessInput = document.getElementById('guessInput');
     guessInput.onkeypress = handleKeyPress;
+
+    model.generateShipLocations();
 };

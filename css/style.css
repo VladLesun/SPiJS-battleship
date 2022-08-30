@@ -9,7 +9,9 @@ html {
 }
 
 body {
+    width: 100%;
     background-color: black;
+    margin: 0 auto;
 }
 
 img {
@@ -46,6 +48,7 @@ ul {
     top: 0;
     left: 0;
     color: rgba(83, 175, 19, 1);
+    font-size: 2em;
 }
 
 .hit {
@@ -80,9 +83,6 @@ ul {
     background-color: rgba(152, 207, 113, 1);
     border-color: rgba(83, 175, 19, 1);
     font-size: 1em;
-    cursor: pointer;
-}
-
-.guessInput-js {
     outline: none;
+    cursor: pointer;
 }
